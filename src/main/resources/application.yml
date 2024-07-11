@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: enterprise-wechat
+  profiles:
+    active: dev
+---
+server:
+  port: 8080
+  servlet:
+    context-path: /ew
+spring:
+  config:
+    activate:
+      on-profile: online
+---
+server:
+  port: 8080
+  servlet:
+    context-path: /ew
+spring:
+  config:
+    activate:
+      on-profile: dev
+---
+server:
+  port: 8080
+  servlet:
+    context-path: /ew
+spring:
+  config:
+    activate:
+      on-profile: test
+---
+xxl:
+  job:
+    accessToken: ''
+    executor:
+      appname: enterprise-wechat
+      ip:
+      logpath: /app/logs/xxl-job/jobhandler
+      logretentiondays: -1
+      port: 7018
+      address:

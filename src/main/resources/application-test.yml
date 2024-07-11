@@ -1,0 +1,49 @@
+spring:
+  redis:
+    sentinel:
+      nodes: 10.143.177.17:16006,10.143.177.18:16006,10.143.177.19:16006
+      master: mymaster1
+    password:
+  kafka:
+    bootstrap-servers: kafka1.131.test.yirendai.com:9091,kafka2.131.test.yirendai.com:9092,kafka3.131.test.yirendai.com:9093
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+management:
+  health:
+    defaults:
+      enabled: false
+
+api:
+  config:
+    # 表明是否是测试环境
+    test-enabled: true
+    client:
+      clover-path: http://bladex-biz-qv.fso.paas.test/
+      kratos-path: http://kratos.caiwu.corp/
+      uic-path: http://fsoyhzx2.fso.paas.test/uic-web/services/
+      poseidon-path: http://poseidon.fso.paas.test/poseidon-web/services/
+      qr-code-path: http://qw-api-yixin-test.qw-test.paas.test/
+      notify3-url: http://10.143.253.218:42082/notify-api/
+      dic-path: http://fsodicweb.fso.spider.test/dic/
+      nacos-path: http://10.170.33.131:8848/nacos/
+      god-power-path: http://fsogodpon.fso.spider.test/
+      yao-path: http://fsoy.fso.spider.test/
+      metis-path: http://metis.fsojy.spider.test/metis/
+      metis-key: NzZiM2U1ODA3NmIzZTU4MA==
+kafka:
+  topic:
+    FSO_CLOVER_CUSTOMER_MAPPING: FSO_QV_CUSTOMER_MAPPING_SYNC
+swagger:
+  enable: true
+email:
+  alarm: YXCF.user.list@CREDITEASE.CN
+notify3:
+  tempId:
+    gainCustomer: B11060
+
+xxl:
+  job:
+    admin:
+      # 调度中心部署跟地址 [选填]：如调度中心集群部署存在多个地址则用逗号分隔。执行器将会使用该地址进行"执行器心跳注册"和"任务结果回调"；为空则关闭自动注册；
+      addresses: http://xxl-job-admin.components-yx.paas.test/xxl-job-admin/
